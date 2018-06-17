@@ -16,20 +16,9 @@ nresidus = d.get_nresidus()
 
 taules = []
 
-
-''' 
-Tipus de representació
------------------------------
-
-1. Representació 3D del complex protèic seguns color aminoacids
-5. Representació del complex per molècules
-7. Representació per tipus aminoàcid
-2. Representació dels elements externs a la proteina 
-4. Representació ubicació d'un aminoacid concret dins la proteina 
-3. Representació dels carbonis alfa units per les linees que representen els aminoacids
-6. Representació en backbone
-7. Representació del complex per tipus d'aminoàcids
-'''
+print (" El temps de renderitzacio depen del nombre de residus es possible que amb determinats maquinaris i molts ")
+print ("residus el programa no renderitzi o no ho faci de forma incompleta. Especialment en cas de treballar amb ")
+print ("Windows, amb Ubuntu o Mac OSX generalment pot tardar fins a 2 min. amb 8.000 residus pero funciona correctament")
 
 sws = 0
 
@@ -82,31 +71,28 @@ if tipus == "cadenes" and tipus2 == "tipus":
     proteines = Proteines(6, fitxer)
     fet = 1
 
-if tipus == "atoms" and nresidus < 1300:
-    """ Representació del complex proteic seguns color aminoàcids"""
-    if tipus == "atoms" and tipus2 == "residu":
-            proteines = Proteines(1, fitxer)
-            fet = 1
-    """ Representació dels elements externs a la proteina"""
-    if tipus == "atoms" and tipus2 == "extern":
-            proteines = Proteines(2, fitxer)
-            fet = 1
-    """7. Representació per tipus aminoàcid"""
-    if tipus == "atoms" and tipus2 == "tipus":
-            proteines = Proteines(7, fitxer)
-            fet = 1
-    """ Representació ubicació d'un aminoacid concret"""
-    if tipus == "atoms" and tipus2 == "amino" and tipus3 != "":
-            proteines = Proteines(4, fitxer, tipus3)
-            fet = 1
-    """ Representació del complex per molècules """
-    if tipus == "atoms" and tipus2 == "molecula":
-            proteines = Proteines(5, fitxer)
-            fet = 1
-elif tipus == "atoms":
-    fet = 0
-    fet2 = 1
-    print("No es poden representar proteines amb forma atomica de mes de 1300 residus ")
+
+""" Representació del complex proteic seguns color aminoàcids"""
+if tipus == "atoms" and tipus2 == "residu":
+        proteines = Proteines(1, fitxer)
+        fet = 1
+""" Representació dels elements externs a la proteina"""
+if tipus == "atoms" and tipus2 == "extern":
+        proteines = Proteines(2, fitxer)
+        fet = 1
+"""7. Representació per tipus aminoàcid"""
+if tipus == "atoms" and tipus2 == "tipus":
+        proteines = Proteines(7, fitxer)
+        fet = 1
+""" Representació ubicació d'un aminoacid concret"""
+if tipus == "atoms" and tipus2 == "amino" and tipus3 != "":
+        proteines = Proteines(4, fitxer, tipus3)
+        fet = 1
+""" Representació del complex per molècules """
+if tipus == "atoms" and tipus2 == "molecula":
+        proteines = Proteines(5, fitxer)
+        fet = 1
+
 
 if fet == 1:
     base.run()
